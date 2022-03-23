@@ -1,3 +1,15 @@
+solydk-system-adjustments-12 (1.0.3) stable; urgency=low
+
+  * Move gtkhash from dependency to recommends
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 06 Oct 2021 09:29:30 +0200
+
+solydk-system-adjustments-12 (1.0.2) stable; urgency=low
+
+  * Fix favorites of Kicker menu
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 09 Sep 2021 11:49:01 +0200
+
 solydk-system-adjustments-12 (1.0.1) stable; urgency=low
 
   * Move dolphin panel launcher to org.kde.plasma.icon plasmoid
