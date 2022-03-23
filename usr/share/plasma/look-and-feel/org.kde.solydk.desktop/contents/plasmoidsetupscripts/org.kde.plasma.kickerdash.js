@@ -1,5 +1,5 @@
 applet.currentConfigGroup = ["Shortcuts"]
-applet.writeConfig("global", "Alt+F1")
+applet.writeConfig("global", "Meta+F1")
 
 applet.currentConfigGroup = ["General"]
 applet.writeConfig("customButtonImage", "file:///usr/share/pixmaps/solydk.xpm")

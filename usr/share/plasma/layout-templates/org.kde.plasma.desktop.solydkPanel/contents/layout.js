@@ -32,24 +32,30 @@ panel.height = 42
 
 // Create start menu
 var simplemenu = panel.addWidget("org.kde.plasma.kicker")
-simplemenu.currentConfigGroup = ["General"]
+simplemenu.currentConfigGroup = ["Shortcuts"]
+simplemenu.writeConfig("global", "Meta+F1")
+
 simplemenu.writeConfig("icon", "solydk")
-simplemenu.writeConfig("global", "F13")
-simplemenu.writeConfig("favoriteApps", "firefox-esr.desktop,thunderbird.desktop,libreoffice-startcenter.desktop,org.kde.discover.desktop,systemsettings.desktop,org.kde.konsole.desktop")
+simplemenu.writeConfig("favoriteApps", [
+    'preferred://browser',
+    'thunderbird.desktop',
+    'libreoffice-startcenter.desktop',
+    'org.kde.discover.desktop',
+    'systemsettings.desktop',
+    'org.kde.konsole.desktop'
+])
+simplemenu.writeConfig("limitDepth", true)
 simplemenu.writeConfig("alphaSort", true)
 
 // Add show desktop
 var showdt = panel.addWidget("org.kde.plasma.showdesktop")
-showdt.currentConfigGroup = ["General"]
 
 // Add dolphin
 var icon = panel.addWidget("org.kde.plasma.icon")
-icon.currentConfigGroup = ["General"]
 icon.writeConfig("url", ["file:///usr/share/applications/org.kde.dolphin.desktop"])
 
 // Add taskmanager
 var task = panel.addWidget("org.kde.plasma.taskmanager")
-task.currentConfigGroup = ["General"]
 task.writeConfig("launchers", [])
 task.writeConfig("showOnlyCurrentDesktop", true)
 task.writeConfig("groupingStrategy", "0")
@@ -62,8 +68,17 @@ task.writeConfig("sortingStrategy", "1")
 var systray = panel.addWidget("org.kde.plasma.systemtray")
 var systrayContainmentId = systray.readConfig("SystrayContainmentId")
 var systrayContainment = desktopById(systrayContainmentId)
-systrayContainment.currentConfigGroup = ["General"]
-systrayContainment.writeConfig("extraItems",["org.kde.plasma.volume", "org.kde.plasma.devicenotifier","org.kde.plasma.networkmanagement","org.kde.discovernotifier","org.kde.plasma.diskquota","org.kde.plasma.bluetooth","org.kde.plasma.clipboard","org.kde.plasma.printmanager","org.kde.plasma.battery"])
+systrayContainment.writeConfig("extraItems", [
+    'org.kde.plasma.volume',
+    'org.kde.plasma.devicenotifier',
+    'org.kde.plasma.networkmanagement',
+    'org.kde.discovernotifier',
+    'org.kde.plasma.diskquota',
+    'org.kde.plasma.bluetooth',
+    'org.kde.plasma.clipboard',
+    'org.kde.plasma.printmanager',
+    'org.kde.plasma.battery'
+])
 systrayContainment.writeConfig("hiddenItems",["org.kde.plasma.clipboard"])
 
 // Add notifications
