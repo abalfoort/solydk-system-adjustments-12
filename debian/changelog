@@ -1,3 +1,21 @@
+solydk-system-adjustments-12 (1.0.6) stable; urgency=low
+
+  * Change PRETTY_NAME in /etc/os-release
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 28 Apr 2022 16:50:35 +0200
+
+solydk-system-adjustments-12 (1.0.5) stable; urgency=low
+
+  * Fixed info file
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 27 Apr 2022 12:30:08 +0200
+
+solydk-system-adjustments-12 (1.0.4) stable; urgency=low
+
+  * Swapped CODENAME and DISTRIB_ID in /usr/share/solydxk/info
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 20 Apr 2022 19:09:06 +0200
+
 solydk-system-adjustments-12 (1.0.3) stable; urgency=low
 
   * Move gtkhash from dependency to recommends
