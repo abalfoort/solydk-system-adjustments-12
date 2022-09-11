@@ -1,3 +1,15 @@
+solydk-system-adjustments-12 (1.0.8) stable; urgency=low
+
+  * Add use24hFormat=2 to panel clock
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 07 Sep 2022 15:16:33 +0200
+
+solydk-system-adjustments-12 (1.0.7) stable; urgency=low
+
+  * Add GRUB_DISABLE_OS_PROBER=false to /etc/default/grub
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 27 May 2022 10:13:22 +0200
+
 solydk-system-adjustments-12 (1.0.6) stable; urgency=low
 
   * Change PRETTY_NAME in /etc/os-release
