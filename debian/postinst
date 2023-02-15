@@ -37,6 +37,26 @@ function sed_append_sting {
   fi
 }
 
+function fix_kickoff_favs {
+    # Fix favorites in kickoff
+    FAVS='preferred://browser,thunderbird.desktop,libreoffice-startcenter.desktop,org.kde.discover.desktop,systemsettings.desktop,org.kde.konsole.desktop'
+    KICKOF='/usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml'
+    KICKER='/usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml'
+    if [ -e $KICKOF ]; then
+        sed -i -e "s#preferred://browser,.*\.desktop#$FAVS#" $KICKOF
+    fi
+    if [ -e $KICKER ]; then
+        sed -i -e "s#preferred://browser,.*\.desktop#$FAVS#" $KICKER
+    fi
+}
+
+function fix_desktop_files {
+    DT='/usr/share/applications/org.kde.kate.desktop'
+    if [ -e $DT ]; then
+        sed -i 's/;Development//' $DT
+    fi
+}
+
 case "$1" in    
   configure|reconfigure)
     # Create a link to kdesu in /usr/bin
@@ -166,6 +186,10 @@ case "$1" in
     if [ ! -d "$DOLPHINDIR" ]; then
       mkdir -p "$DOLPHINDIR"
     fi
+    
+    fix_kickoff_favs
+    
+    fix_desktop_files
    
   ;;
 
@@ -176,6 +200,8 @@ case "$1" in
   ;;
 
   triggered)
+    fix_kickoff_favs
+    fix_desktop_files
   ;;
 
   *)
