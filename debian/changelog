@@ -1,3 +1,9 @@
+solydk-system-adjustments-12 (1.1.1) stable; urgency=low
+
+  * Remove redundant plasmoidsetupscripts
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 19 Feb 2023 16:02:58 +0100
+
 solydk-system-adjustments-12 (1.1.0) stable; urgency=low
 
   * Postinst/triggers: Remove Development category from org.kde.kate.desktop
