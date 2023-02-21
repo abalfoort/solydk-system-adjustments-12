@@ -1,3 +1,9 @@
+solydk-system-adjustments-12 (1.1.2) stable; urgency=low
+
+  * Remove old adjustments
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 21 Feb 2023 20:05:09 +0100
+
 solydk-system-adjustments-12 (1.1.1) stable; urgency=low
 
   * Remove redundant plasmoidsetupscripts
