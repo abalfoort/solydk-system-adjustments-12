@@ -1,3 +1,9 @@
+solydk-system-adjustments-12 (1.1.3) stable; urgency=low
+
+  *  Add default configuration for /root
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 28 Feb 2023 16:37:05 +0100
+
 solydk-system-adjustments-12 (1.1.2) stable; urgency=low
 
   * Remove old adjustments
