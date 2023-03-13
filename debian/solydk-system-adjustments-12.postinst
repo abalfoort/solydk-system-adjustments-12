@@ -56,24 +56,34 @@ function install_root_files {
     fi
 }
 
-function fix_kickoff_favs {
+function adust_trigger_files {
     # Fix favorites in kickoff
     FAVS='preferred://browser,thunderbird.desktop,libreoffice-startcenter.desktop,org.kde.discover.desktop,systemsettings.desktop,org.kde.konsole.desktop'
-    KICKOF='/usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml'
+    
+    KICKOFF='/usr/share/plasma/plasmoids/org.kde.plasma.kickoff/contents/config/main.xml'
+    if [ ! -e $KICKOFF ]; then
+        if [ -e $KICKOFF.divert ]; then
+            cp $KICKOFF.divert $KICKOFF
+        fi
+    fi
+    [ -e $KICKOFF ] && sed -i -e "s#preferred://browser,.*\.desktop#$FAVS#" $KICKOFF
+    
     KICKER='/usr/share/plasma/plasmoids/org.kde.plasma.kicker/contents/config/main.xml'
-    if [ -e $KICKOF ]; then
-        sed -i -e "s#preferred://browser,.*\.desktop#$FAVS#" $KICKOF
+    if [ ! -e $KICKER ]; then
+        if [ -e $KICKER.divert ]; then
+            cp $KICKER.divert $KICKER
+        fi
     fi
-    if [ -e $KICKER ]; then
-        sed -i -e "s#preferred://browser,.*\.desktop#$FAVS#" $KICKER
-    fi
-}
+    [ -e $KICKER ] && sed -i -e "s#preferred://browser,.*\.desktop#$FAVS#" $KICKER
 
-function fix_desktop_files {
-    DT='/usr/share/applications/org.kde.kate.desktop'
-    if [ -e $DT ]; then
-        sed -i 's/;Development//' $DT
+    # Do not show Kate in Development
+    KATE='/usr/share/applications/org.kde.kate.desktop'
+    if [ ! -e $KATE ]; then
+        if [ -e $KATE.divert ]; then
+            cp $KATE.divert $KATE
+        fi
     fi
+    [ -e $KATE ] && sed -i 's/;Development//' $KATE
 }
 
 case "$1" in    
@@ -178,8 +188,7 @@ case "$1" in
       mkdir -p "$DOLPHINDIR"
     fi
     
-    fix_kickoff_favs
-    fix_desktop_files
+    adust_trigger_files
     install_root_files
    
   ;;
@@ -191,8 +200,7 @@ case "$1" in
   ;;
 
   triggered)
-    fix_kickoff_favs
-    fix_desktop_files
+    adust_trigger_files
   ;;
 
   *)
