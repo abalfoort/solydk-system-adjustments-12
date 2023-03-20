@@ -1,7 +1,3 @@
 [General]
 confirmLogout=false
-excludeApps=
-loginMode=default
-offerShutdown=true
-screenCount=1
-shutdownType=0
+

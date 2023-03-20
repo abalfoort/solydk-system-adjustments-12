@@ -2,13 +2,13 @@
 Containment=org.kde.plasma.folder
 
 [kdeglobals][KDE]
-LookAndFeelPackage=org.kde.solydk.desktop
-widgetStyle=Breeze
+LookAndFeelPackage=org.kde.solydkdark.desktop
+widgetStyle=breeze
 SingleClick=false
 
 [kdeglobals][General]
-ColorScheme=SolydK
-Name=SolydK
+ColorScheme=SolydKDark
+Name=SolydK Dark
 fixed=Monospace,10,-1,0,50,0,0,0,0,0
 font=Clear Sans,11,-1,0,50,0,0,0,0,0
 menuFont=Clear Sans,11,-1,0,50,0,0,0,0,0
@@ -23,22 +23,22 @@ Theme=evolvere-2-blue
 activeFont=Clear Sans,11,-1,0,75,0,0,0,0,0
 
 [plasmarc][Theme]
-name=solydk
+name=solydk-dark
 
 [kcminputrc][Mouse]
 cursorTheme=oxy-white
 
 [kwinrc][WindowSwitcher]
-LayoutName=org.kde.solydk.desktop
+LayoutName=org.kde.solydkdark.desktop
 
 [kwinrc][DesktopSwitcher]
-LayoutName=org.kde.solydk.desktop
+LayoutName=org.kde.solydkdark.desktop
 
 [kwinrc][org.kde.kdecoration2]
 library=org.kde.breeze
 
 [KSplash]
-Theme=org.kde.solydk.desktop
+Theme=org.kde.solydkdark.desktop
 
 [Wallpaper]
-Image=SolydK
+Image=SolydKDark

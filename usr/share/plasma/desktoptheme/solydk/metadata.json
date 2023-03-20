@@ -8,15 +8,12 @@
         ],
         "Category": "",
         "Description": "SolydK by Arjen Balfoort",
-        "Id": "org.kde.solydk.desktop",
-        "License": "GPLv2+",
+        "EnabledByDefault": true,
+        "Id": "solydk",
+        "License": "LGPL",
         "Name": "SolydK",
-        "ServiceTypes": [
-            "Plasma/LookAndFeel"
-        ],
-        "Version": "2.0",
-        "Website": "https://www.kde.org"
+        "Version": "5.103.0",
+        "Website": "https://plasma.kde.org"
     },
-    "X-Plasma-APIVersion": "2",
-    "X-Plasma-MainScript": "defaults"
+    "X-Plasma-API": "5.0"
 }

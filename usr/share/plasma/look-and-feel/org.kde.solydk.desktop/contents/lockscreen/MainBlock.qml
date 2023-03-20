@@ -1,185 +1,112 @@
-/********************************************************************
- This file is part of the KDE project.
+/*
+    SPDX-FileCopyrightText: 2016 David Edmundson <davidedmundson@kde.org>
 
-Copyright (C) 2014 Aleix Pol Gonzalez <aleixpol@blue-systems.com>
+    SPDX-License-Identifier: LGPL-2.0-or-later
+*/
 
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
+import QtQuick 2.2
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*********************************************************************/
-
-import QtQuick 2.0
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 1.1
-import org.kde.plasma.components 2.0 as PlasmaComponents
+
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.workspace.keyboardlayout 1.0
+import org.kde.plasma.components 3.0 as PlasmaComponents3
+import org.kde.plasma.extras 2.0 as PlasmaExtras
+
 import "../components"
 
-BreezeBlock {
-    id: block
-    main: UserSelect {
-        id: usersSelection
+SessionManagementScreen {
 
-        onVisibleChanged: {
-            if(visible) {
-                selectedIndex = 0;
-            }
-        }
-        Component.onCompleted: root.userSelect = usersSelection
+    readonly property alias mainPasswordBox: passwordBox
+    property bool lockScreenUiVisible: false
+    property alias showPassword: passwordBox.showPassword
 
-        notification: {
-            var text = ""
-            if (keystateSource.data["Caps Lock"]["Locked"]) {
-                text += i18nd("plasma_lookandfeel_org.kde.lookandfeel","Caps Lock is on")
-                if (root.notification) {
-                    text += " • "
-                }
-            }
-            text += root.notification
-            return text
-        }
+    //the y position that should be ensured visible when the on screen keyboard is visible
+    property int visibleBoundary: mapFromItem(loginButton, 0, 0).y
+    onHeightChanged: visibleBoundary = mapFromItem(loginButton, 0, 0).y + loginButton.height + PlasmaCore.Units.smallSpacing
+    /*
+     * Login has been requested with the following username and password
+     * If username field is visible, it will be taken from that, otherwise from the "name" property of the currentIndex
+     */
+    signal passwordResult(string password)
 
-        model: ListModel {
-            id: users
-
-            Component.onCompleted: {
-                users.append({name: kscreenlocker_userName,
-                                realName: kscreenlocker_userName,
-                                icon: kscreenlocker_userImage,
-                                showPassword: true,
-                                ButtonLabel: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Unlock"),
-                                ButtonAction: "unlock"
-                })
-                if (sessionsModel.canStartNewSession) {
-                    users.append({realName: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "New Session"),
-                                    icon: "system-log-out", //TODO Need an icon for new session
-                                    ButtonLabel: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Create Session"),
-                                    ButtonAction: "newSession"
-                    })
-                }
-                if (sessionsModel.canSwitchUser && sessionsModel.count > 0) {
-                    users.append({realName: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Change Session"),
-                                    icon: "system-switch-user",
-                                    ButtonLabel: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Change Session..."),
-                                    ButtonAction: "changeSession"
-                    })
-                }
-            }
-        }
+    onUserSelected: {
+        const nextControl = (passwordBox.visible ? passwordBox : loginButton);
+        // Don't startLogin() here, because the signal is connected to the
+        // Escape key as well, for which it wouldn't make sense to trigger
+        // login. Using TabFocusReason, so that the loginButton gets the
+        // visual highlight.
+        nextControl.forceActiveFocus(Qt.TabFocusReason);
     }
 
-    controls: Item {
-        height: childrenRect.height
+    function startLogin() {
+        const password = passwordBox.text
+
+        // This is partly because it looks nicer, but more importantly it
+        // works round a Qt bug that can trigger if the app is closed with a
+        // TextField focused.
+        //
+        // See https://bugreports.qt.io/browse/QTBUG-55460
+        loginButton.forceActiveFocus();
+        passwordResult(password);
+    }
+
+    RowLayout {
         Layout.fillWidth: true
-        function unlockFunction() {
-            authenticator.tryUnlock(passwordInput.text);
-        }
 
-        ColumnLayout {
-            anchors.horizontalCenter: parent.horizontalCenter
-            RowLayout {
-                anchors.horizontalCenter: parent.horizontalCenter
+        PlasmaExtras.PasswordField {
+            id: passwordBox
+            font.pointSize: PlasmaCore.Theme.defaultFont.pointSize + 1
+            Layout.fillWidth: true
 
-                KeyboardLayoutButton {}
+            placeholderText: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Password")
+            focus: true
+            enabled: !authenticator.graceLocked
 
-                PlasmaComponents.TextField {
-                    id: passwordInput
-                    placeholderText: i18nd("plasma_lookandfeel_org.kde.lookandfeel","Password")
-                    echoMode: TextInput.Password
-                    enabled: !authenticator.graceLocked
-                    onAccepted: actionButton.clicked(null)
-                    focus: true
-                    //HACK: Similar hack is needed in sddm loginscreen
-                    //TODO: investigate
-                    Timer {
-                        interval: 200
-                        running: true
-                        repeat: false
-                        onTriggered: passwordInput.forceActiveFocus()
-                    }
-                    visible: block.mainItem.model.get(block.mainItem.selectedIndex) ? !!block.mainItem.model.get(block.mainItem.selectedIndex).showPassword : false
-                    onVisibleChanged: {
-                        if (visible) {
-                            forceActiveFocus();
-                        }
-                        text = "";
-                    }
-                    onTextChanged: {
-                        if (text == "") {
-                            clearTimer.stop();
-                        } else {
-                            clearTimer.restart();
-                        }
-                    }
+            // In Qt this is implicitly active based on focus rather than visibility
+            // in any other application having a focussed invisible object would be weird
+            // but here we are using to wake out of screensaver mode
+            // We need to explicitly disable cursor flashing to avoid unnecessary renders
+            cursorVisible: visible
 
-                    Keys.onLeftPressed: {
-                        if (text == "") {
-                            root.userSelect.decrementCurrentIndex();
-                        } else {
-                            event.accepted = false;
-                        }
-                    }
-                    Keys.onRightPressed: {
-                        if (text == "") {
-                            root.userSelect.incrementCurrentIndex();
-                        } else {
-                            event.accepted = false;
-                        }
-                    }
-                    Timer {
-                        id: clearTimer
-                        interval: 30000
-                        repeat: false
-                        onTriggered: {
-                            passwordInput.text = "";
-                        }
-                    }
-                }
-
-                PlasmaComponents.Button {
-                    id: actionButton
-                    Layout.minimumWidth: passwordInput.width
-                    text: block.mainItem.model.get(block.mainItem.selectedIndex) ? block.mainItem.model.get(block.mainItem.selectedIndex).ButtonLabel : ""
-                    enabled: !authenticator.graceLocked
-                    onClicked: switch(block.mainItem.model.get(block.mainItem.selectedIndex)["ButtonAction"]) {
-                        case "unlock":
-                            unlockFunction();
-                            break;
-                        case "newSession":
-                            // false means don't lock, we're the lock screen
-                            sessionsModel.startNewSession(false);
-                            break;
-                        case "changeSession":
-                            changeSessionComponent.active = true
-                            stackView.push(changeSessionComponent.item)
-                            break;
-                    }
-                }
-
-                Connections {
-                    target: root
-                    onClearPassword: {
-                        passwordInput.selectAll();
-                        passwordInput.forceActiveFocus();
-                    }
-                }
-                Keys.onLeftPressed: {
-                    root.userSelect.decrementCurrentIndex();
-                }
-                Keys.onRightPressed: {
-                    root.userSelect.incrementCurrentIndex();
+            onAccepted: {
+                if (lockScreenUiVisible) {
+                    startLogin();
                 }
             }
+
+            //if empty and left or right is pressed change selection in user switch
+            //this cannot be in keys.onLeftPressed as then it doesn't reach the password box
+            Keys.onPressed: {
+                if (event.key == Qt.Key_Left && !text) {
+                    userList.decrementCurrentIndex();
+                    event.accepted = true
+                }
+                if (event.key == Qt.Key_Right && !text) {
+                    userList.incrementCurrentIndex();
+                    event.accepted = true
+                }
+            }
+
+            Connections {
+                target: root
+                function onClearPassword() {
+                    passwordBox.forceActiveFocus()
+                    passwordBox.text = "";
+                }
+            }
+        }
+
+        PlasmaComponents3.Button {
+            id: loginButton
+            Accessible.name: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Unlock")
+            Layout.preferredHeight: passwordBox.implicitHeight
+            Layout.preferredWidth: loginButton.Layout.preferredHeight
+
+            icon.name: LayoutMirroring.enabled ? "go-previous" : "go-next"
+
+            onClicked: startLogin()
+            Keys.onEnterPressed: clicked()
+            Keys.onReturnPressed: clicked()
         }
     }
 }

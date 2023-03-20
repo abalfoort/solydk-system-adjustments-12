@@ -7,10 +7,10 @@
             }
         ],
         "Category": "",
-        "Description": "SolydK by Arjen Balfoort",
-        "Id": "org.kde.solydk.desktop",
+        "Description": "SolydK Dark by Arjen Balfoort",
+        "Id": "org.kde.solydkdark.desktop",
         "License": "GPLv2+",
-        "Name": "SolydK",
+        "Name": "SolydK Dark",
         "ServiceTypes": [
             "Plasma/LookAndFeel"
         ],
