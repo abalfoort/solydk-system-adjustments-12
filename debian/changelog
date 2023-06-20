@@ -1,3 +1,9 @@
+solydk-system-adjustments-12 (1.1.6) stable; urgency=low
+
+  * Add keyboardlayout
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 20 Jun 2023 12:21:59 +0200
+
 solydk-system-adjustments-12 (1.1.5) stable; urgency=low
 
   * Updated theming
