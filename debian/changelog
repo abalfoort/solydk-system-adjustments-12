@@ -1,3 +1,9 @@
+solydk-system-adjustments-12 (1.2.1) stable; urgency=low
+
+  * Fix postrm
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 16 Jul 2023 17:23:44 +0200
+
 solydk-system-adjustments-12 (1.2.0) stable; urgency=low
 
   * Updated graphics
