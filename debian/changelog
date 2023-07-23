@@ -1,3 +1,9 @@
+solydk-system-adjustments-12 (1.2.3) stable; urgency=low
+
+  * Move postinst logic to iso-constructor
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 22 Jul 2023 19:03:28 +0200
+
 solydk-system-adjustments-12 (1.2.2) stable; urgency=low
 
   * Change Plymouth bullet image to black
