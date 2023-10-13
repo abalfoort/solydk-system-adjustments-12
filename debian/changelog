@@ -1,3 +1,9 @@
+solydk-system-adjustments-12 (1.2.5) stable; urgency=low
+
+  * Change light Grub theme font colors
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 11 Oct 2023 13:57:13 +0200
+
 solydk-system-adjustments-12 (1.2.4) stable; urgency=low
 
   * Plymouth theme smaller password character (bullet.png)
