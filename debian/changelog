@@ -1,3 +1,9 @@
+solydk-system-adjustments-12 (1.2.8) stable; urgency=low
+
+  * Change default desktop icon arrangement
+
+ -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 01 Apr 2025 10:48:24 +0200
+
 solydk-system-adjustments-12 (1.2.7) stable; urgency=low
 
   * Larger Grub font size
