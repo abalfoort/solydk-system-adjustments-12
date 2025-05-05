@@ -1,181 +1,188 @@
+solydk-system-adjustments-12 (1.2.9) stable; urgency=low
+
+  * Add alternatives configuration
+  * Change dev e-mail address
+
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 03 May 2025 13:03:22 +0200
+
 solydk-system-adjustments-12 (1.2.8) stable; urgency=low
 
   * Change default desktop icon arrangement
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 01 Apr 2025 10:48:24 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 01 Apr 2025 10:48:24 +0200
 
 solydk-system-adjustments-12 (1.2.7) stable; urgency=low
 
   * Larger Grub font size
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 16 Nov 2023 11:59:31 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 16 Nov 2023 11:59:31 +0100
 
 solydk-system-adjustments-12 (1.2.6) stable; urgency=low
 
   * Move /lib to /usr/lib
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 15 Oct 2023 11:47:21 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 15 Oct 2023 11:47:21 +0200
 
 solydk-system-adjustments-12 (1.2.5) stable; urgency=low
 
   * Change light Grub theme font colors
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 11 Oct 2023 13:57:13 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 11 Oct 2023 13:57:13 +0200
 
 solydk-system-adjustments-12 (1.2.4) stable; urgency=low
 
   * Plymouth theme smaller password character (bullet.png)
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 21 Aug 2023 12:02:10 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 21 Aug 2023 12:02:10 +0200
 
 solydk-system-adjustments-12 (1.2.3) stable; urgency=low
 
   * Move postinst logic to iso-constructor
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sat, 22 Jul 2023 19:03:28 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sat, 22 Jul 2023 19:03:28 +0200
 
 solydk-system-adjustments-12 (1.2.2) stable; urgency=low
 
   * Change Plymouth bullet image to black
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 17 Jul 2023 10:50:34 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 17 Jul 2023 10:50:34 +0200
 
 solydk-system-adjustments-12 (1.2.1) stable; urgency=low
 
   * Fix postrm
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 16 Jul 2023 17:23:44 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 16 Jul 2023 17:23:44 +0200
 
 solydk-system-adjustments-12 (1.2.0) stable; urgency=low
 
   * Updated graphics
   * Added black theme
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 03 Jul 2023 15:30:55 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 03 Jul 2023 15:30:55 +0200
 
 solydk-system-adjustments-12 (1.1.9) stable; urgency=low
 
   * Replace desktop-grub.png with a generic black image
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 29 Jun 2023 08:21:15 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 29 Jun 2023 08:21:15 +0200
 
 solydk-system-adjustments-12 (1.1.8) stable; urgency=low
 
   * Adjusted grub theme colors
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 28 Jun 2023 10:21:03 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 28 Jun 2023 10:21:03 +0200
 
 solydk-system-adjustments-12 (1.1.7) stable; urgency=low
 
   * Add Grub SolydK light theme (default)
     Check /etc/default/grub for configuration
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 22 Jun 2023 15:28:03 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 22 Jun 2023 15:28:03 +0200
 
 solydk-system-adjustments-12 (1.1.6) stable; urgency=low
 
   * Add keyboardlayout
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 20 Jun 2023 12:21:59 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 20 Jun 2023 12:21:59 +0200
 
 solydk-system-adjustments-12 (1.1.5) stable; urgency=low
 
   * Updated theming
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 19 Mar 2023 15:37:24 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 19 Mar 2023 15:37:24 +0100
 
 solydk-system-adjustments-12 (1.1.4) stable; urgency=low
 
   * Fix trigger cycle
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 12 Mar 2023 20:26:29 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 12 Mar 2023 20:26:29 +0100
 
 solydk-system-adjustments-12 (1.1.3) stable; urgency=low
 
   *  Add default configuration for /root
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 28 Feb 2023 16:37:05 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 28 Feb 2023 16:37:05 +0100
 
 solydk-system-adjustments-12 (1.1.2) stable; urgency=low
 
   * Remove old adjustments
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 21 Feb 2023 20:05:09 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 21 Feb 2023 20:05:09 +0100
 
 solydk-system-adjustments-12 (1.1.1) stable; urgency=low
 
   * Remove redundant plasmoidsetupscripts
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 19 Feb 2023 16:02:58 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 19 Feb 2023 16:02:58 +0100
 
 solydk-system-adjustments-12 (1.1.0) stable; urgency=low
 
   * Postinst/triggers: Remove Development category from org.kde.kate.desktop
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 29 Jan 2023 16:09:53 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 29 Jan 2023 16:09:53 +0100
 
 solydk-system-adjustments-12 (1.0.10) stable; urgency=low
 
   * Postinst/triggers: Fix favorites in kickoff
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Tue, 24 Jan 2023 19:51:43 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Tue, 24 Jan 2023 19:51:43 +0100
 
 solydk-system-adjustments-12 (1.0.9) stable; urgency=low
 
   * Remove gtkhash: now part of file permissions
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Sun, 01 Jan 2023 19:34:41 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Sun, 01 Jan 2023 19:34:41 +0100
 
 solydk-system-adjustments-12 (1.0.8) stable; urgency=low
 
   * Add use24hFormat=2 to panel clock
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 07 Sep 2022 15:16:33 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 07 Sep 2022 15:16:33 +0200
 
 solydk-system-adjustments-12 (1.0.7) stable; urgency=low
 
   * Add GRUB_DISABLE_OS_PROBER=false to /etc/default/grub
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Fri, 27 May 2022 10:13:22 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Fri, 27 May 2022 10:13:22 +0200
 
 solydk-system-adjustments-12 (1.0.6) stable; urgency=low
 
   * Change PRETTY_NAME in /etc/os-release
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 28 Apr 2022 16:50:35 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 28 Apr 2022 16:50:35 +0200
 
 solydk-system-adjustments-12 (1.0.5) stable; urgency=low
 
   * Fixed info file
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 27 Apr 2022 12:30:08 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 27 Apr 2022 12:30:08 +0200
 
 solydk-system-adjustments-12 (1.0.4) stable; urgency=low
 
   * Swapped CODENAME and DISTRIB_ID in /usr/share/solydxk/info
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 20 Apr 2022 19:09:06 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 20 Apr 2022 19:09:06 +0200
 
 solydk-system-adjustments-12 (1.0.3) stable; urgency=low
 
   * Move gtkhash from dependency to recommends
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Wed, 06 Oct 2021 09:29:30 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Wed, 06 Oct 2021 09:29:30 +0200
 
 solydk-system-adjustments-12 (1.0.2) stable; urgency=low
 
   * Fix favorites of Kicker menu
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 09 Sep 2021 11:49:01 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 09 Sep 2021 11:49:01 +0200
 
 solydk-system-adjustments-12 (1.0.1) stable; urgency=low
 
   * Move dolphin panel launcher to org.kde.plasma.icon plasmoid
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Mon, 16 Aug 2021 09:40:11 +0200
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Mon, 16 Aug 2021 09:40:11 +0200
 
 solydk-system-adjustments-12 (1.0.0) stable; urgency=low
 
   * Initial version 1.0.0
 
- -- Arjen Balfoort <arjenbalfoort@hotmail.com>  Thu, 12 Aug 2021 14:55:00 +0100
+ -- Arjen Balfoort <solydxk.abalfoort@tuta.com>  Thu, 12 Aug 2021 14:55:00 +0100
